@@ -87,30 +87,29 @@
 <body class="bg-gray-50 min-h-screen">
     <div x-data="participantApp()" x-init="init()" class="min-h-screen pb-12">
         <!-- Registration CTA Section -->
-        <section class="bg-gradient-to-br from-green-400 via-emerald-500 to-teal-600 shadow-2xl">
+        <section class="bg-gradient-to-br from-pink-200 via-pink-300 to-rose-400 shadow-2xl">
             <div class="container mx-auto px-4 py-12 md:py-16">
                 <div class="max-w-3xl mx-auto text-center">
                     <!-- Banner Image -->
                     <div class="mb-6 flex justify-center">
-                        <img src="assets/banner.png" alt="Event Banner"
+                        <img src="assets/banner2.png" alt="Event Banner"
                             class="w-auto max-w-xs md:max-w-md lg:max-w-lg drop-shadow-2xl rounded-lg" />
                     </div>
 
                     <!-- Heading -->
-                    <h2 class="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+                    <h2 class="text-3xl md:text-5xl font-bold text-slate-800 mb-4 tracking-tight">
                         Mau Ikut Balap? Daftar di Sini!
                     </h2>
 
                     <!-- Subtext -->
-                    <p class="text-lg md:text-xl text-green-50 mb-8 leading-relaxed max-w-2xl mx-auto">
-                        Klik tombol di bawah untuk mengisi formulir pendaftaran. Data kamu akan otomatis masuk ke
-                        daftar peserta.
+                    <p class="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed max-w-2xl mx-auto">
+                        Persiapkan RC mu untuk Golem Challenge 2026! Balap seru akan berlangsung pada 5 April 2026. Daftar sekarang dan buktikan skill kamu di lintasan! Jangan sampai ketinggalan!
                     </p>
 
                     <!-- CTA Button -->
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1X3UROWTCbh3Z6lyTrFaxtCQ9NBFJhUoBsKECjW3_bC1tgw/viewform"
                         target="_blank" rel="noopener noreferrer"
-                        class="inline-flex items-center gap-3 bg-white text-green-600 font-bold text-lg md:text-xl px-8 md:px-12 py-4 md:py-5 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transform transition-all duration-300 hover:bg-green-50 group">
+                        class="inline-flex items-center gap-3 bg-white text-pink-600 font-bold text-lg md:text-xl px-8 md:px-12 py-4 md:py-5 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transform transition-all duration-300 hover:bg-pink-50 group">
                         <span>Buka Form Pendaftaran</span>
                         <svg class="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" fill="none"
                             stroke="currentColor" viewBox="0 0 24 24">
@@ -127,12 +126,12 @@
             <section class="fade-in">
                 <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
                     <!-- Section Header -->
-                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-5">
-                        <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center gap-3">
+                    <div class="bg-gradient-to-r from-blue-300 to-blue-400 px-6 py-5">
+                        <h2 class="text-2xl md:text-3xl font-bold text-slate-800 flex items-center gap-3">
                             <span class="text-3xl">🏎️</span>
                             <span>Kamtom 1/18</span>
                         </h2>
-                        <p class="text-blue-100 text-sm mt-1">
+                        <p class="text-slate-600 text-sm mt-1">
                             Total: <span x-text="kamtomData.length"></span> peserta
                         </p>
                     </div>
@@ -173,7 +172,11 @@
                                 <template x-if="!kamtomLoading && kamtomData.length === 0 && !kamtomError">
                                     <tr>
                                         <td colspan="3" class="px-6 py-12 text-center text-gray-500">
-                                            Belum ada peserta terdaftar
+                                            <div class="flex flex-col items-center gap-2">
+                                                <span class="text-4xl">🏎️</span>
+                                                <p>Belum ada peserta terdaftar</p>
+                                                <p class="text-sm">Jadilah yang pertama daftar!</p>
+                                            </div>
                                         </td>
                                     </tr>
                                 </template>
@@ -213,12 +216,12 @@
             <section class="fade-in">
                 <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
                     <!-- Section Header -->
-                    <div class="bg-gradient-to-r from-purple-500 to-purple-600 px-6 py-5">
-                        <h2 class="text-2xl md:text-3xl font-bold text-white flex items-center gap-3">
+                    <div class="bg-gradient-to-r from-purple-300 to-purple-400 px-6 py-5">
+                        <h2 class="text-2xl md:text-3xl font-bold text-slate-800 flex items-center gap-3">
                             <span class="text-3xl">🏁</span>
                             <span>WL-Toys 1/28</span>
                         </h2>
-                        <p class="text-purple-100 text-sm mt-1">
+                        <p class="text-slate-600 text-sm mt-1">
                             Total: <span x-text="wltoysData.length"></span> peserta
                         </p>
                     </div>
@@ -259,7 +262,11 @@
                                 <template x-if="!wltoysLoading && wltoysData.length === 0 && !wltoysError">
                                     <tr>
                                         <td colspan="3" class="px-6 py-12 text-center text-gray-500">
-                                            Belum ada peserta terdaftar
+                                            <div class="flex flex-col items-center gap-2">
+                                                <span class="text-4xl">🏁</span>
+                                                <p>Belum ada peserta terdaftar</p>
+                                                <p class="text-sm">Jadilah yang pertama daftar!</p>
+                                            </div>
                                         </td>
                                     </tr>
                                 </template>
@@ -359,7 +366,8 @@
                         const data = await this.fetchCSV(this.KAMTOM_CSV_URL);
                         this.kamtomData = data;
                     } catch (error) {
-                        this.kamtomError = `Gagal memuat data: ${error.message}`;
+                        // Silently fail - just show empty state
+                        this.kamtomData = [];
                         console.error('Kamtom error:', error);
                     } finally {
                         this.kamtomLoading = false;
@@ -375,7 +383,8 @@
                         const data = await this.fetchCSV(this.WLTOYS_CSV_URL);
                         this.wltoysData = data;
                     } catch (error) {
-                        this.wltoysError = `Gagal memuat data: ${error.message}`;
+                        // Silently fail - just show empty state
+                        this.wltoysData = [];
                         console.error('WL-Toys error:', error);
                     } finally {
                         this.wltoysLoading = false;
