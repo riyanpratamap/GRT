@@ -366,8 +366,7 @@
                         const data = await this.fetchCSV(this.KAMTOM_CSV_URL);
                         this.kamtomData = data;
                     } catch (error) {
-                        // Silently fail - just show empty state
-                        this.kamtomData = [];
+                        // Keep existing data on error, don't clear it
                         console.error('Kamtom error:', error);
                     } finally {
                         this.kamtomLoading = false;
@@ -383,24 +382,21 @@
                         const data = await this.fetchCSV(this.WLTOYS_CSV_URL);
                         this.wltoysData = data;
                     } catch (error) {
-                        // Silently fail - just show empty state
-                        this.wltoysData = [];
+                        // Keep existing data on error, don't clear it
                         console.error('WL-Toys error:', error);
                     } finally {
                         this.wltoysLoading = false;
                     }
                 },
 
-                // Fetch and parse CSV using CORS proxy
+                // Fetch and parse CSV
                 async fetchCSV(url) {
                     // Check if URL is placeholder
                     if (url.includes('_URL_HERE')) {
                         throw new Error('URL belum dikonfigurasi');
                     }
 
-                    // Use CORS proxy to avoid cross-origin issues
-                    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
-                    const response = await fetch(proxyUrl);
+                    const response = await fetch(url);
 
                     if (!response.ok) {
                         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
