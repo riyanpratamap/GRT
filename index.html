@@ -391,14 +391,16 @@
                     }
                 },
 
-                // Fetch and parse CSV
+                // Fetch and parse CSV using CORS proxy
                 async fetchCSV(url) {
                     // Check if URL is placeholder
                     if (url.includes('_URL_HERE')) {
                         throw new Error('URL belum dikonfigurasi');
                     }
 
-                    const response = await fetch(url);
+                    // Use CORS proxy to avoid cross-origin issues
+                    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
+                    const response = await fetch(proxyUrl);
 
                     if (!response.ok) {
                         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
