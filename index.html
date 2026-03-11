@@ -414,10 +414,8 @@
                         return [];
                     }
 
-                    // Skip header row and parse data rows
-                    const dataRows = lines.slice(1);
-
-                    return dataRows
+                    // Don't skip any rows - FILTER formula output has no header
+                    return lines
                         .map(line => {
                             // Simple CSV parsing (handles basic cases)
                             const values = line.split(',').map(v => v.trim().replace(/^"|"$/g, ''));
@@ -430,7 +428,7 @@
                             }
                             return null;
                         })
-                        .filter(row => row !== null && row.name !== '-');
+                        .filter(row => row !== null && row.name !== '-' && row.name !== '');
                 },
 
                 // Censor phone number - show first 4 and last 4 digits, mask middle with ****
