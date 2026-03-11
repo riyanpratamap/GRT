@@ -396,7 +396,11 @@
                         throw new Error('URL belum dikonfigurasi');
                     }
 
-                    const response = await fetch(url);
+                    // Add cache-busting timestamp to bypass browser cache
+                    const cacheBuster = `&_=${Date.now()}`;
+                    const response = await fetch(url + cacheBuster, {
+                        cache: 'no-store'
+                    });
 
                     if (!response.ok) {
                         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
