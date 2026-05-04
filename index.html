@@ -141,6 +141,26 @@
                     <!-- Yellow accent bar -->
                     <div class="w-24 h-1 bg-yellow-400 mx-auto mb-6"></div>
 
+                    <!-- Event Date -->
+                    <div class="flex justify-center mb-6">
+                        <div
+                            class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border-2 border-yellow-400 rounded-full px-5 py-2.5 md:px-6 md:py-3">
+                            <svg class="w-5 h-5 md:w-6 md:h-6 text-yellow-400" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <div class="text-left">
+                                <p class="font-display uppercase text-yellow-400 text-[10px] md:text-xs tracking-[0.25em] leading-none">
+                                    Tanggal Event
+                                </p>
+                                <p class="font-display uppercase text-white font-bold text-base md:text-xl tracking-wide leading-tight mt-0.5">
+                                    24 Mei 2026
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Subtext -->
                     <p class="text-base md:text-lg text-slate-100 mb-8 leading-relaxed max-w-2xl mx-auto">
                         <span class="font-bold text-white uppercase tracking-wide">The ultimate battle of 1/18 and 1/28 car in Indonesia.</span> <br>Daftar sekarang dan buktikan skill kamu di Golem Roof Track.</br>
@@ -392,6 +412,118 @@
             </section>
         </main>
 
+        <!-- Payment Info Section -->
+        <section class="bg-slate-50 py-12 md:py-16 px-4">
+            <div class="max-w-2xl mx-auto">
+                <div class="relative bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+                    <!-- Top accent strip -->
+                    <div class="h-1.5 bg-gradient-to-r from-[#0B1E3F] via-[#1E3A8A] to-red-700"></div>
+
+                    <div class="p-6 md:p-10">
+                        <!-- Pill -->
+                        <div class="flex justify-center mb-6">
+                            <span class="inline-block bg-yellow-400 text-[#0B1E3F] font-display font-bold uppercase text-xs tracking-[0.25em] px-4 py-1.5 rounded-full">
+                                Biaya Pendaftaran
+                            </span>
+                        </div>
+
+                        <!-- Big fee number -->
+                        <div class="text-center mb-2">
+                            <p class="font-display font-bold text-5xl md:text-6xl text-[#0B1E3F] tracking-tight">
+                                Rp 50.000
+                            </p>
+                            <p class="text-slate-500 text-sm md:text-base mt-1 uppercase tracking-wider font-display">
+                                per peserta
+                            </p>
+                        </div>
+
+                        <!-- Note -->
+                        <p class="text-center text-slate-600 text-sm md:text-base mb-6 max-w-md mx-auto">
+                            Satu biaya untuk satu atau dua kelas (Kamtom 1/18 + WL-Toys 1/28).
+                        </p>
+
+                        <!-- Divider -->
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="flex-1 h-px bg-slate-200"></div>
+                            <span class="font-display uppercase text-xs tracking-[0.2em] text-slate-400">Transfer ke</span>
+                            <div class="flex-1 h-px bg-slate-200"></div>
+                        </div>
+
+                        <!-- Bank card -->
+                        <div class="bg-gradient-to-br from-[#0B1E3F] to-[#1E3A8A] rounded-xl p-5 md:p-6 text-white">
+                            <!-- Bank label -->
+                            <div class="flex items-center gap-2 mb-3">
+                                <svg class="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11m16-11v11M8 14v3m4-3v3m4-3v3" />
+                                </svg>
+                                <span class="font-display uppercase text-yellow-400 text-xs tracking-[0.2em]">Bank</span>
+                            </div>
+                            <p class="font-display font-bold text-2xl md:text-3xl mb-4">BCA</p>
+
+                            <!-- Account number with copy -->
+                            <p class="font-display uppercase text-slate-300 text-xs tracking-[0.2em] mb-1">No. Rekening</p>
+                            <div class="flex items-center justify-between gap-3 mb-4">
+                                <p class="font-mono font-bold text-xl md:text-2xl tracking-wider select-all"
+                                    x-text="'4564782132'"></p>
+                                <button type="button" @click="copyAccount()"
+                                    class="inline-flex items-center gap-1.5 bg-yellow-400 text-[#0B1E3F] font-display font-bold uppercase text-xs tracking-wide px-3 py-2 rounded-lg hover:bg-yellow-300 transition-all duration-200 shrink-0"
+                                    :class="copiedAccount ? 'bg-green-400 hover:bg-green-400' : ''">
+                                    <template x-if="!copiedAccount">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                        </svg>
+                                    </template>
+                                    <template x-if="copiedAccount">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                                d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </template>
+                                    <span x-text="copiedAccount ? 'Tersalin!' : 'Salin'"></span>
+                                </button>
+                            </div>
+
+                            <!-- Recipient -->
+                            <div class="pt-4 border-t border-white/10">
+                                <p class="font-display uppercase text-slate-300 text-xs tracking-[0.2em] mb-1">Atas Nama</p>
+                                <p class="font-bold text-lg md:text-xl">Arie Sugiarto</p>
+                            </div>
+                        </div>
+
+                        <!-- After-transfer note -->
+                        <div class="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                            <div class="flex items-start gap-3 mb-4">
+                                <svg class="w-5 h-5 text-yellow-600 shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <p class="text-sm text-slate-700 leading-relaxed">
+                                    Setelah transfer, kirim bukti pembayaran ke panitia untuk konfirmasi pendaftaran.
+                                </p>
+                            </div>
+                            <a href="https://wa.me/6281807844809?text=Halo%20panitia%2C%20saya%20telah%20transfer%20biaya%20pendaftaran%20Kejurnas%20Kamtom%20Seri%201.%20Berikut%20bukti%20pembayaran%20saya."
+                                target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#1ebd5b] text-white font-display font-bold uppercase text-sm tracking-wide px-4 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-200">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                                </svg>
+                                <span>Konfirmasi via WhatsApp</span>
+                            </a>
+                            <p class="text-center text-xs text-slate-500 mt-2 font-mono">
+                                +62 818-0784-4809
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Footer -->
         <footer class="text-center py-8 mt-4">
             <p class="font-display uppercase text-[#0B1E3F] font-bold tracking-[0.25em] text-sm md:text-base">
@@ -427,6 +559,9 @@
 
                 // Refresh interval
                 refreshInterval: null,
+
+                // Payment copy-to-clipboard state
+                copiedAccount: false,
 
                 // Initialize
                 init() {
@@ -479,6 +614,17 @@
                         console.error('WL-Toys error:', error);
                     } finally {
                         this.wltoysLoading = false;
+                    }
+                },
+
+                // Copy BCA account number to clipboard
+                async copyAccount() {
+                    try {
+                        await navigator.clipboard.writeText('4564782132');
+                        this.copiedAccount = true;
+                        setTimeout(() => { this.copiedAccount = false; }, 2000);
+                    } catch (err) {
+                        console.error('Clipboard copy failed:', err);
                     }
                 },
 
