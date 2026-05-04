@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Peserta Golem Challenge 2026</title>
+    <title>Daftar Peserta Kejurnas Kamtom Seri 1 - National Championship</title>
     <meta name="description"
-        content="Daftar peserta Golem Challenge 2026 untuk kategori Kamtom 1/18 dan WL-Toys 1/28 - Auto-refresh setiap 30 detik">
+        content="Daftar peserta Kejurnas Kamtom Seri 1 - National Championship. The ultimate battle of 1/18 touring car in Indonesia. Kelas Kamtom 1/18 & WL-Toys 1/28. Auto-refresh setiap 30 detik.">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,11 +17,18 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Oswald:wght@500;600;700&display=swap"
+        rel="stylesheet">
 
     <style>
         body {
             font-family: 'Inter', sans-serif;
+        }
+
+        .font-display {
+            font-family: 'Oswald', 'Inter', sans-serif;
+            letter-spacing: 0.02em;
         }
 
         /* Smooth fade animation */
@@ -41,9 +48,31 @@
             animation: fadeIn 0.5s ease-out;
         }
 
-        /* Gradient background */
-        .bg-gradient-premium {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        /* Championship hero gradient (navy → blue → red) */
+        .bg-gradient-championship {
+            background: linear-gradient(135deg, #0B1E3F 0%, #1E3A8A 55%, #B91C1C 100%);
+        }
+
+        /* Diagonal racing stripes overlay */
+        .racing-stripes::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(135deg,
+                    rgba(255, 255, 255, 0.04) 0 12px,
+                    rgba(255, 255, 255, 0) 12px 24px);
+            pointer-events: none;
+        }
+
+        /* Checkered flag micro-pattern for section headers */
+        .checker-overlay {
+            background-image:
+                linear-gradient(45deg, rgba(255, 255, 255, 0.06) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(255, 255, 255, 0.06) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.06) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.06) 75%);
+            background-size: 16px 16px;
+            background-position: 0 0, 0 8px, 8px -8px, -8px 0;
         }
 
         /* Custom scrollbar */
@@ -87,36 +116,58 @@
 <body class="bg-gray-50 min-h-screen">
     <div x-data="participantApp()" x-init="init()" class="min-h-screen pb-12">
         <!-- Registration CTA Section -->
-        <section class="bg-gradient-to-br from-pink-200 via-pink-300 to-rose-400 shadow-2xl">
-            <div class="container mx-auto px-4 py-12 md:py-16">
-                <div class="max-w-3xl mx-auto text-center">
+        <section class="bg-gradient-championship racing-stripes relative shadow-2xl overflow-hidden">
+            <div class="container mx-auto px-4 py-12 md:py-16 relative z-10">
+                <div class="max-w-4xl mx-auto text-center">
                     <!-- Banner Image -->
-                    <div class="mb-6 flex justify-center">
-                        <img src="assets/banner2.png" alt="Event Banner"
-                            class="w-auto max-w-xs md:max-w-md lg:max-w-lg drop-shadow-2xl rounded-lg" />
+                    <div class="mb-8 flex justify-center">
+                        <img src="assets/banner-kejurnas.jpg" alt="Kejurnas Kamtom Seri 1 - National Championship"
+                            class="w-full max-w-md md:max-w-2xl lg:max-w-3xl drop-shadow-2xl" />
                     </div>
 
-                    <!-- Heading -->
-                    <h2 class="text-3xl md:text-5xl font-bold text-slate-800 mb-4 tracking-tight">
-                        Mau Ikut Balap? Daftar di Sini!
-                    </h2>
-
-                    <!-- Subtext -->
-                    <p class="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed max-w-2xl mx-auto">
-                        Persiapkan RC mu untuk Golem Challenge 2026! Balap seru akan berlangsung pada 5 April 2026. Daftar sekarang dan buktikan skill kamu di lintasan! Jangan sampai ketinggalan!
+                    <!-- Eyebrow -->
+                    <p class="font-display uppercase text-yellow-400 text-sm md:text-base tracking-[0.3em] mb-3">
+                        National Championship · Seri 1
                     </p>
 
-                    <!-- CTA Button -->
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1X3UROWTCbh3Z6lyTrFaxtCQ9NBFJhUoBsKECjW3_bC1tgw/viewform"
-                        target="_blank" rel="noopener noreferrer"
-                        class="inline-flex items-center gap-3 bg-white text-pink-600 font-bold text-lg md:text-xl px-8 md:px-12 py-4 md:py-5 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transform transition-all duration-300 hover:bg-pink-50 group">
-                        <span>Buka Form Pendaftaran</span>
-                        <svg class="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                        </svg>
-                    </a>
+                    <!-- Heading -->
+                    <h2 class="font-display uppercase text-4xl md:text-6xl font-bold text-white mb-2 tracking-wide">
+                        Mau Ikut Balap?
+                    </h2>
+                    <h3 class="font-display uppercase text-2xl md:text-4xl font-bold text-yellow-400 mb-6 tracking-wide">
+                        Daftar di Sini!
+                    </h3>
+
+                    <!-- Yellow accent bar -->
+                    <div class="w-24 h-1 bg-yellow-400 mx-auto mb-6"></div>
+
+                    <!-- Subtext -->
+                    <p class="text-base md:text-lg text-slate-100 mb-8 leading-relaxed max-w-2xl mx-auto">
+                        <span class="font-bold text-white uppercase tracking-wide">The ultimate battle of 1/18 and 1/28 car in Indonesia.</span> <br>Daftar sekarang dan buktikan skill kamu di Golem Roof Track.</br>
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col gap-4 justify-center items-center">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1X3UROWTCbh3Z6lyTrFaxtCQ9NBFJhUoBsKECjW3_bC1tgw/viewform"
+                            target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center gap-3 bg-yellow-400 text-[#0B1E3F] font-display font-bold uppercase text-base md:text-lg tracking-wide px-8 md:px-10 py-4 md:py-5 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transform transition-all duration-300 hover:bg-yellow-300 ring-2 ring-transparent hover:ring-white group">
+                            <span>Buka Form Pendaftaran</span>
+                            <svg class="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform duration-300"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                        </a>
+
+                        <a href="assets/Regulasi-Kejurnas-Kamtom.pdf" target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 bg-transparent text-white border-2 border-white font-display font-bold uppercase text-xs md:text-sm tracking-wide px-5 md:px-6 py-2.5 md:py-3 rounded-full transition-all duration-300 hover:bg-white hover:text-[#0B1E3F] group">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            <span>Lihat Regulasi</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -126,42 +177,52 @@
             <section class="fade-in">
                 <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
                     <!-- Section Header -->
-                    <div class="bg-gradient-to-r from-blue-300 to-blue-400 px-6 py-5">
-                        <h2 class="text-2xl md:text-3xl font-bold text-slate-800 flex items-center gap-3">
-                            <span class="text-3xl">🏎️</span>
-                            <span>Kamtom 1/18</span>
-                        </h2>
-                        <p class="text-slate-600 text-sm mt-1">
-                            Total: <span x-text="kamtomData.length"></span> peserta
-                        </p>
+                    <div class="relative bg-gradient-to-r from-[#0B1E3F] via-[#1E3A8A] to-red-700 px-6 py-6 overflow-hidden">
+                        <div class="absolute inset-0 checker-overlay opacity-20"></div>
+                        <div class="relative z-10">
+                            <span class="inline-block bg-yellow-400 text-[#0B1E3F] font-display font-bold uppercase text-xs tracking-[0.2em] px-3 py-1 rounded-full mb-2">
+                                Kelas Utama · Seri 1
+                            </span>
+                            <h2 class="font-display uppercase text-2xl md:text-4xl font-bold text-white flex items-center gap-3 tracking-wide">
+                                <span class="text-3xl">🏎️</span>
+                                <span>Kamtom 1/18</span>
+                            </h2>
+                            <p class="text-slate-200 text-sm mt-1">
+                                Total: <span class="font-bold text-yellow-400" x-text="kamtomData.length"></span> peserta terdaftar
+                            </p>
+                        </div>
                     </div>
 
                     <!-- Table Container -->
                     <div class="overflow-x-auto custom-scrollbar">
                         <table class="w-full">
-                            <thead class="bg-gray-50 sticky top-0">
+                            <thead class="bg-slate-100 sticky top-0">
                                 <tr>
                                     <th
-                                        class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider border-b-2 border-gray-200">
+                                        class="px-6 py-4 text-left text-xs font-display font-bold text-[#0B1E3F] uppercase tracking-wider border-b-2 border-red-600">
                                         No
                                     </th>
                                     <th
-                                        class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider border-b-2 border-gray-200">
+                                        class="px-6 py-4 text-left text-xs font-display font-bold text-[#0B1E3F] uppercase tracking-wider border-b-2 border-red-600">
                                         Nama
                                     </th>
                                     <th
-                                        class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider border-b-2 border-gray-200">
+                                        class="px-6 py-4 text-left text-xs font-display font-bold text-[#0B1E3F] uppercase tracking-wider border-b-2 border-red-600">
                                         No. Telepon
+                                    </th>
+                                    <th
+                                        class="px-6 py-4 text-left text-xs font-display font-bold text-[#0B1E3F] uppercase tracking-wider border-b-2 border-red-600">
+                                        Payment
                                     </th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200">
                                 <template x-if="kamtomLoading">
                                     <tr>
-                                        <td colspan="3" class="px-6 py-12 text-center">
+                                        <td colspan="4" class="px-6 py-12 text-center">
                                             <div class="flex flex-col items-center gap-3">
                                                 <div
-                                                    class="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin">
+                                                    class="w-12 h-12 border-4 border-red-600 border-t-transparent rounded-full animate-spin">
                                                 </div>
                                                 <p class="text-gray-500 font-medium">Memuat data...</p>
                                             </div>
@@ -171,7 +232,7 @@
 
                                 <template x-if="!kamtomLoading && kamtomData.length === 0 && !kamtomError">
                                     <tr>
-                                        <td colspan="3" class="px-6 py-12 text-center text-gray-500">
+                                        <td colspan="4" class="px-6 py-12 text-center text-gray-500">
                                             <div class="flex flex-col items-center gap-2">
                                                 <span class="text-4xl">🏎️</span>
                                                 <p>Belum ada peserta terdaftar</p>
@@ -182,14 +243,23 @@
                                 </template>
 
                                 <template x-for="(participant, index) in kamtomData" :key="index">
-                                    <tr class="hover:bg-blue-50 transition-colors duration-200"
+                                    <tr class="hover:bg-red-50 transition-colors duration-200"
                                         :class="index % 2 === 0 ? 'bg-white' : 'bg-gray-50'">
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-900"
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-display font-bold text-red-700"
                                             x-text="index + 1"></td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
                                             x-text="participant.name"></td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600"
                                             x-text="participant.phone"></td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span
+                                                class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-display font-bold uppercase tracking-wide"
+                                                :class="participant.isPaid ? 'bg-green-100 text-green-700 ring-1 ring-green-600/20' : 'bg-red-100 text-red-700 ring-1 ring-red-600/20'">
+                                                <span class="w-1.5 h-1.5 rounded-full"
+                                                    :class="participant.isPaid ? 'bg-green-600' : 'bg-red-600'"></span>
+                                                <span x-text="participant.payment"></span>
+                                            </span>
+                                        </td>
                                     </tr>
                                 </template>
                             </tbody>
@@ -216,42 +286,52 @@
             <section class="fade-in">
                 <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
                     <!-- Section Header -->
-                    <div class="bg-gradient-to-r from-purple-300 to-purple-400 px-6 py-5">
-                        <h2 class="text-2xl md:text-3xl font-bold text-slate-800 flex items-center gap-3">
-                            <span class="text-3xl">🏁</span>
-                            <span>WL-Toys 1/28</span>
-                        </h2>
-                        <p class="text-slate-600 text-sm mt-1">
-                            Total: <span x-text="wltoysData.length"></span> peserta
-                        </p>
+                    <div class="relative bg-gradient-to-r from-[#0B1E3F] via-[#1E3A8A] to-blue-600 px-6 py-6 overflow-hidden">
+                        <div class="absolute inset-0 checker-overlay opacity-20"></div>
+                        <div class="relative z-10">
+                            <span class="inline-block bg-white text-[#0B1E3F] font-display font-bold uppercase text-xs tracking-[0.2em] px-3 py-1 rounded-full mb-2">
+                                Kelas WLToys · Seri 1
+                            </span>
+                            <h2 class="font-display uppercase text-2xl md:text-4xl font-bold text-white flex items-center gap-3 tracking-wide">
+                                <span class="text-3xl">🏁</span>
+                                <span>WL-Toys 1/28</span>
+                            </h2>
+                            <p class="text-slate-200 text-sm mt-1">
+                                Total: <span class="font-bold text-yellow-400" x-text="wltoysData.length"></span> peserta terdaftar
+                            </p>
+                        </div>
                     </div>
 
                     <!-- Table Container -->
                     <div class="overflow-x-auto custom-scrollbar">
                         <table class="w-full">
-                            <thead class="bg-gray-50 sticky top-0">
+                            <thead class="bg-slate-100 sticky top-0">
                                 <tr>
                                     <th
-                                        class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider border-b-2 border-gray-200">
+                                        class="px-6 py-4 text-left text-xs font-display font-bold text-[#0B1E3F] uppercase tracking-wider border-b-2 border-blue-700">
                                         No
                                     </th>
                                     <th
-                                        class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider border-b-2 border-gray-200">
+                                        class="px-6 py-4 text-left text-xs font-display font-bold text-[#0B1E3F] uppercase tracking-wider border-b-2 border-blue-700">
                                         Nama
                                     </th>
                                     <th
-                                        class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider border-b-2 border-gray-200">
+                                        class="px-6 py-4 text-left text-xs font-display font-bold text-[#0B1E3F] uppercase tracking-wider border-b-2 border-blue-700">
                                         No. Telepon
+                                    </th>
+                                    <th
+                                        class="px-6 py-4 text-left text-xs font-display font-bold text-[#0B1E3F] uppercase tracking-wider border-b-2 border-blue-700">
+                                        Payment
                                     </th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200">
                                 <template x-if="wltoysLoading">
                                     <tr>
-                                        <td colspan="3" class="px-6 py-12 text-center">
+                                        <td colspan="4" class="px-6 py-12 text-center">
                                             <div class="flex flex-col items-center gap-3">
                                                 <div
-                                                    class="w-12 h-12 border-4 border-purple-500 border-t-transparent rounded-full animate-spin">
+                                                    class="w-12 h-12 border-4 border-blue-700 border-t-transparent rounded-full animate-spin">
                                                 </div>
                                                 <p class="text-gray-500 font-medium">Memuat data...</p>
                                             </div>
@@ -261,7 +341,7 @@
 
                                 <template x-if="!wltoysLoading && wltoysData.length === 0 && !wltoysError">
                                     <tr>
-                                        <td colspan="3" class="px-6 py-12 text-center text-gray-500">
+                                        <td colspan="4" class="px-6 py-12 text-center text-gray-500">
                                             <div class="flex flex-col items-center gap-2">
                                                 <span class="text-4xl">🏁</span>
                                                 <p>Belum ada peserta terdaftar</p>
@@ -272,14 +352,23 @@
                                 </template>
 
                                 <template x-for="(participant, index) in wltoysData" :key="index">
-                                    <tr class="hover:bg-purple-50 transition-colors duration-200"
+                                    <tr class="hover:bg-blue-50 transition-colors duration-200"
                                         :class="index % 2 === 0 ? 'bg-white' : 'bg-gray-50'">
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-900"
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-display font-bold text-blue-700"
                                             x-text="index + 1"></td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
                                             x-text="participant.name"></td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600"
                                             x-text="participant.phone"></td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span
+                                                class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-display font-bold uppercase tracking-wide"
+                                                :class="participant.isPaid ? 'bg-green-100 text-green-700 ring-1 ring-green-600/20' : 'bg-red-100 text-red-700 ring-1 ring-red-600/20'">
+                                                <span class="w-1.5 h-1.5 rounded-full"
+                                                    :class="participant.isPaid ? 'bg-green-600' : 'bg-red-600'"></span>
+                                                <span x-text="participant.payment"></span>
+                                            </span>
+                                        </td>
                                     </tr>
                                 </template>
                             </tbody>
@@ -304,9 +393,13 @@
         </main>
 
         <!-- Footer -->
-        <footer class="text-center text-gray-500 text-sm py-6">
-            <p>Data diperbarui otomatis setiap 30 detik</p>
-            <p class="mt-1">Terakhir diperbarui: <span x-text="lastUpdated"></span></p>
+        <footer class="text-center py-8 mt-4">
+            <p class="font-display uppercase text-[#0B1E3F] font-bold tracking-[0.25em] text-sm md:text-base">
+                Kejurnas Kamtom <span class="text-red-700">·</span> Seri 1 <span class="text-red-700">·</span> National Championship
+            </p>
+            <div class="w-16 h-0.5 bg-yellow-400 mx-auto my-3"></div>
+            <p class="text-gray-500 text-sm">Data diperbarui otomatis setiap 30 detik</p>
+            <p class="text-gray-500 text-xs mt-1">Terakhir diperbarui: <span x-text="lastUpdated"></span></p>
         </footer>
     </div>
 
@@ -425,9 +518,13 @@
                             const values = line.split(',').map(v => v.trim().replace(/^"|"$/g, ''));
 
                             if (values.length >= 2) {
+                                const paymentRaw = (values[2] || '').trim();
+                                const isPaid = paymentRaw.toLowerCase() === 'lunas';
                                 return {
                                     name: values[0] || '-',
-                                    phone: this.censorPhoneNumber(values[1] || '-')
+                                    phone: this.censorPhoneNumber(values[1] || '-'),
+                                    payment: paymentRaw || 'Belum Lunas',
+                                    isPaid: isPaid
                                 };
                             }
                             return null;

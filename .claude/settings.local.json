@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git push:*)",
+      "Bash(gh:*)",
+      "Bash(git remote get-url:*)",
+      "Bash(curl:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(open *)",
+      "Bash(python3 *)",
+      "Bash(lsof -ti:8000)"
+    ]
+  }
+}
